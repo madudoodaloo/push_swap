@@ -15,6 +15,7 @@ utils/checkers.c \
 utils/utils.c \
 utils/atoi.c \
 utils/split.c \
+utils/libft.c \
 algs/alg3.c \
 algs/alg5.c \
 algs/alg100.c \

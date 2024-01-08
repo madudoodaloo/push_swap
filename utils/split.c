@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duckiemadu <duckiemadu@student.42.fr>      +#+  +:+       +#+        */
+/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 20:46:31 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/08 01:01:28 by duckiemadu       ###   ########.fr       */
+/*   Updated: 2024/01/08 01:25:19 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**ft_split(const char *str, char c)
 		arr[0] = 0;
 		return (arr);
 	}
-	int = get_len(str, c);
+	len = get_len(str, c);
 	arr = malloc(sizeof(char *) * (len + 1));
 	if (!arr)
 	{

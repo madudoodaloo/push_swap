@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   checkers.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duckiemadu <duckiemadu@student.42.fr>      +#+  +:+       +#+        */
+/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 23:42:01 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/08 01:01:44 by duckiemadu       ###   ########.fr       */
+/*   Updated: 2024/01/08 01:49:32 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void printLinkedList(t_stack *head) {
+    t_stack* current = head;
+
+    while (current != NULL) 
+	{
+        printf("%d %d\n", current->content, current->index);
+        current = current->next;
+    }
+
+    printf("\n");
+}
 
 void	free_args(char **nbrs)
 {
@@ -70,9 +82,9 @@ int	is_valid(char **av, t_stack **stack)
 	i = 0;
 	while (av[++i])
 	{
-		nbrs = ft_split(av[i], ' ');
-		j = -1;
-		while (nbrs[++j])
+		nbrs = ft_split(av[i], 32);
+		j = 0;
+		while (nbrs[j])
 		{
 			tmp = super_atoi(nbrs[j]);
 			if (check_num(nbrs[j]) || sign(nbrs[j]) || (tmp < INT_MIN
@@ -82,6 +94,7 @@ int	is_valid(char **av, t_stack **stack)
 				return (write(2, "Error\n", 6));
 			}
 			ft_lstaddback(stack, ft_lstnew(super_atoi(nbrs[j])));
+			j++;
 		}
 		free_args(nbrs);
 	}
@@ -90,20 +103,20 @@ int	is_valid(char **av, t_stack **stack)
 
 int	is_dup(t_stack **stack)
 {
-	t_stack	**temp;
-	t_stack	**comp;
+	t_stack	*temp;
+	t_stack	*comp;
 
-	temp = stack;
-	while (temp->next)
+	temp = *stack;
+	while (temp)
 	{
-		comp = stack;
-		while (comp->next)
+		comp = *stack;
+		while (comp)
 		{
 			if (temp->next != comp->next && temp->content == comp->content)
-				return (1);
+				return (write(2, "Error\n", 6));
 			comp = comp->next;
 		}
 		temp = temp->next;
 	}
-	return (0);
+	return (1);
 }

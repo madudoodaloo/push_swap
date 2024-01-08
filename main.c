@@ -6,7 +6,7 @@
 /*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 20:13:50 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/08 00:52:05 by msilva-c         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:47:12 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ int	main(int ac, char **av)
 	{
 		a = NULL;
 		b = NULL;
-		if (is_valid(ac, av) == 1 && is_dup(&a))
+		if (is_valid(av, &a) == 1 && is_dup(&a) == 1)
 		{
+			printLinkedList(a);
 			get_index(&a);
 			sort_alg(&a, &b, ac);
+			printf("is here\n");
 		}
 		ft_lstclear(&a);
 		ft_lstclear(&b);

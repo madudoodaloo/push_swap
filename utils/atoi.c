@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duckiemadu <duckiemadu@student.42.fr>      +#+  +:+       +#+        */
+/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 20:14:26 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/08 01:01:47 by duckiemadu       ###   ########.fr       */
+/*   Updated: 2024/01/08 01:19:18 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,4 @@ long int	super_atoi(char *av)
 		i++;
 	}
 	return (nbr * sign);
-}
-
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 20:13:39 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/08 00:52:52 by msilva-c         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:45:04 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void				alg500(t_stack **a, t_stack **b);
 
 /* checkers */
 int					is_valid(char **av, t_stack **stack);
-int 				is_dup(t_stack **stack);
+int					is_dup(t_stack **stack);
 void				free_args(char **nbrs);
-int 				sign(char *nbrs);
+int					sign(char *nbrs);
 int					check_num(char *str);
 
 /* list functions */
@@ -79,13 +79,18 @@ void				pushtotop(t_stack **stack, int index, int whichstack);
 int					getbiggestindex(t_stack **stack);
 int					indexchecker(t_stack **stack, int i);
 
-/* split.c */
-char	**ft_split(const char *str, char c);
-char	**get_words(char **arr, const char *str, char c, int len);
-int		get_len(const char *str, char c);
+/* split */
+char				**ft_split(const char *str, char c);
+char				**get_words(char **arr, const char *str, char c, int len);
+int					get_len(const char *str, char c);
 
-/* atoi.c */
+/* libft */
+int					ft_strlen(const char *str);
+int					ft_strlcpy(char *dst, const char *src, int len);
+char				*ft_strdup(const char *str);
+char				*ft_substr(const char *str, int start, int len);
+
+/* atoi */
 long int			super_atoi(char *av);
-int		ft_strlen(char *str);
-
+void printLinkedList(t_stack *head);
 #endif

@@ -6,23 +6,11 @@
 /*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 23:42:01 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/08 01:49:32 by msilva-c         ###   ########.fr       */
+/*   Updated: 2024/01/08 02:24:27 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void printLinkedList(t_stack *head) {
-    t_stack* current = head;
-
-    while (current != NULL) 
-	{
-        printf("%d %d\n", current->content, current->index);
-        current = current->next;
-    }
-
-    printf("\n");
-}
 
 void	free_args(char **nbrs)
 {
@@ -91,7 +79,7 @@ int	is_valid(char **av, t_stack **stack)
 					|| tmp > INT_MAX) || (ft_strlen(nbrs[j]) > 11))
 			{
 				free_args(nbrs);
-				return (write(2, "Error\n", 6));
+				return (0);
 			}
 			ft_lstaddback(stack, ft_lstnew(super_atoi(nbrs[j])));
 			j++;
@@ -101,7 +89,7 @@ int	is_valid(char **av, t_stack **stack)
 	return (1);
 }
 
-int	is_dup(t_stack **stack)
+int	not_dup(t_stack **stack)
 {
 	t_stack	*temp;
 	t_stack	*comp;
@@ -113,7 +101,7 @@ int	is_dup(t_stack **stack)
 		while (comp)
 		{
 			if (temp->next != comp->next && temp->content == comp->content)
-				return (write(2, "Error\n", 6));
+				return (0);
 			comp = comp->next;
 		}
 		temp = temp->next;

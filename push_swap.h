@@ -6,7 +6,7 @@
 /*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 20:13:39 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/08 01:45:04 by msilva-c         ###   ########.fr       */
+/*   Updated: 2024/01/08 02:23:58 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void				alg500(t_stack **a, t_stack **b);
 
 /* checkers */
 int					is_valid(char **av, t_stack **stack);
-int					is_dup(t_stack **stack);
+int					not_dup(t_stack **stack);
 void				free_args(char **nbrs);
 int					sign(char *nbrs);
 int					check_num(char *str);
@@ -92,5 +92,5 @@ char				*ft_substr(const char *str, int start, int len);
 
 /* atoi */
 long int			super_atoi(char *av);
-void printLinkedList(t_stack *head);
+
 #endif

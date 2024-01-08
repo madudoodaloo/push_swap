@@ -6,25 +6,25 @@
 /*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 20:13:50 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/08 01:47:12 by msilva-c         ###   ########.fr       */
+/*   Updated: 2024/01/08 03:04:59 by msilva-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_alg(t_stack **a, t_stack **b, int ac)
+void	sort_alg(t_stack **a, t_stack **b, int size)
 {
 	if (is_sorted(a))
 		return ;
-	else if (ac == 3)
+	else if (size == 2)
 		swap(a, 0);
-	else if (ac == 4)
+	else if (size == 3)
 		alg3(a);
-	else if (ac == 5 || ac == 6)
+	else if (size == 4 || size == 5)
 		alg5(a, b);
-	else if (ac > 6 && ac < 501)
+	else if (size > 5 && size < 500)
 		alg100(a, b);
-	else if (ac >= 501)
+	else if (size >= 500)
 		alg500(a, b);
 }
 
@@ -37,16 +37,15 @@ int	main(int ac, char **av)
 	{
 		a = NULL;
 		b = NULL;
-		if (is_valid(av, &a) == 1 && is_dup(&a) == 1)
+		if (!is_valid(av, &a) || !not_dup(&a))
+			write(2, "Error\n", 6);
+		else
 		{
-			printLinkedList(a);
 			get_index(&a);
-			sort_alg(&a, &b, ac);
-			printf("is here\n");
+			sort_alg(&a, &b, ft_lstsize(a));
 		}
 		ft_lstclear(&a);
 		ft_lstclear(&b);
 	}
-	else
-		return (1);
+	return (0);
 }

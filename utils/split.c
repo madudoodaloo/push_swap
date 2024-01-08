@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duckiemadu <duckiemadu@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 20:46:31 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/07 23:58:14 by msilva-c         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:01:28 by duckiemadu       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	get_len(const char *str, char c)
 {
 	int	i;
-	int		len;
+	int	len;
 
 	len = 0;
 	i = 0;

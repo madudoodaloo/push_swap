@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checkers.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msilva-c <msilva-c@student.42.fr>          +#+  +:+       +#+        */
+/*   By: duckiemadu <duckiemadu@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 23:42:01 by msilva-c          #+#    #+#             */
-/*   Updated: 2024/01/08 00:52:15 by msilva-c         ###   ########.fr       */
+/*   Updated: 2024/01/08 01:01:44 by duckiemadu       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,21 @@ void	free_args(char **nbrs)
 	}
 }
 
-int sign(char *nbrs)
+int	sign(char *nbrs)
 {
-    int i;
-    int sign;
+	int	i;
+	int	sign;
 
-    i = -1;
-    sign = 0;
-    while (nbrs[++i])
-    {
-        if (nbrs[i] == 43 || nbrs[i] == 45)
-            sign += 1;
-    }
-    if (sign > 1)
-        return (1);
-    return (0);
+	i = -1;
+	sign = 0;
+	while (nbrs[++i])
+	{
+		if (nbrs[i] == 43 || nbrs[i] == 45)
+			sign += 1;
+	}
+	if (sign > 1)
+		return (1);
+	return (0);
 }
 
 int	check_num(char *str)
@@ -62,10 +62,10 @@ int	check_num(char *str)
 
 int	is_valid(char **av, t_stack **stack)
 {
-	int			    i;
-	int			    j;
-	long int		tmp;
-	char		    **nbrs;
+	int			i;
+	int			j;
+	long int	tmp;
+	char		**nbrs;
 
 	i = 0;
 	while (av[++i])
@@ -75,25 +75,24 @@ int	is_valid(char **av, t_stack **stack)
 		while (nbrs[++j])
 		{
 			tmp = super_atoi(nbrs[j]);
-			if (check_num(nbrs[j]) || sign(nbrs[j])
-				|| (tmp < INT_MIN || tmp > INT_MAX)
-				|| (ft_strlen(nbrs[j]) > 11))
+			if (check_num(nbrs[j]) || sign(nbrs[j]) || (tmp < INT_MIN
+					|| tmp > INT_MAX) || (ft_strlen(nbrs[j]) > 11))
 			{
-                free_args(nbrs);
-				return(write(2, "Error\n", 6));
+				free_args(nbrs);
+				return (write(2, "Error\n", 6));
 			}
-            ft_lstaddback(stack, ft_lstnew(super_atoi(nbrs[j])));
+			ft_lstaddback(stack, ft_lstnew(super_atoi(nbrs[j])));
 		}
 		free_args(nbrs);
 	}
-    return (1);
+	return (1);
 }
 
-int is_dup(t_stack **stack)
+int	is_dup(t_stack **stack)
 {
 	t_stack	**temp;
-	t_stack **comp;
-	
+	t_stack	**comp;
+
 	temp = stack;
 	while (temp->next)
 	{
